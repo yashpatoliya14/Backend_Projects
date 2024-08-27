@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn{
+            border: 1px solid black;
+            background-color: green;
+            border-radius: 10px;
+            width: 100px;
+            padding: 7px;
+        }
+        input{
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body style="margin: 50px;">
+    
+    <h1>Login</h1>
+    <form method="post" action="/user/login">
+        <label>Email : </label>
+        <input type="text" name="email" required /> 
+        <br>
+        <label>Password : </label>
+        <input type="text" name="password" required />
+        <br>
+        <button id="btn" type="submit">Login</button>
+    </form>
+<br>
+    <form action="/signup" method="get">
+        <button type="submit" id="btn">Sign Up</button>
+    </form>
+
+</body>
+</html>

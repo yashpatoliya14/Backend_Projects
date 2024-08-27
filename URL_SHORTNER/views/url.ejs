@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #btn{
+            border: 1px solid black;
+            background-color: green;
+            border-radius: 10px;
+            padding: 7px;
+        }
+        #input{
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>URL SHOTRNER</h1>
+
+    <div>
+        <form method="post" action="/url">
+            <label>Enter Your Original URL : </label>
+            <input 
+                id="input"
+                type="text" 
+                name="redirectURL" 
+                placeholder="https://yourURL.com"/>
+            <hr>
+            <button id="btn" type="submit">Generate URL</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <% if (locals.Id) { %>
+        <p>URL Generated : https://localhost:1000/<%= Id %></p>
+    <% } %>
+    
+    <div>
+        <% if (locals.urls) { %>
+            <% index = 1 %>
+            
+            <table border="1" cellpadding="5">
+                <thead>
+                    <th>NO</th>
+                    <th>SHOTR_ID</th>
+                    <th>REDIRECT_URL</th>
+                    <th>CLICKS</th>
+                </thead>
+                <tbody>
+                    <% urls.forEach(url => { %>
+                        <tr>
+                            <td><%= index++ %></td>
+                            <td width="200"><%= url.shortId %></td>
+                            <td width="350"><%= url.redirectURL %></td>
+                            <td><%= url.visitHistory.length %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+        <% } %>
+    </div>
+
+</body>
+</html>
